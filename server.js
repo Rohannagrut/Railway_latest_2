@@ -19,10 +19,11 @@ app.use(moragan("dev"));
 
 //routes
 app.use("/api/v1/user", require("./routes/userRoutes"));
-
-// admin routes
 app.use("/api/v1/admin", require("./routes/adminRoutes"));
-
+app.use("/api/v1/profile", require("./routes/profileRoutes"));
+/**Extra  */
+// app.use("/api/v1/doctor", require("./routes/profileRoutes"));
+/** extra */
 //port
 const port = process.env.PORT || 8080;
 //listen port

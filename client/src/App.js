@@ -10,8 +10,9 @@ import ApplyForm from "./pages/ApplyForm";
 import NotificationPage from "./pages/NotificationPage";
 import Users from "./pages/admin/Users";
 import Doctors from "./pages/admin/Doctors";
-import Profile from "./pages/doctor/Profile";
+import Profile from "./pages/Profile";
 // import ApplyDoctor from "./pages/ApplyDoctor";
+
 function App() {
   const { loading } = useSelector((state) => state.alerts);
   return (
@@ -53,14 +54,7 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            <Route
-              path="/doctor/profile/:id"
-              element={
-                <ProtectedRoute>
-                  <Profile />
-                </ProtectedRoute>
-              }
-            />
+
             {/* <Route
               path="/apply-doctor"
               element={
@@ -77,6 +71,16 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            {/* extra */}
+            {/* <Route
+              path="/doctor/profile/:id"
+              element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+              }
+            /> */}
+            {/* extra */}
             <Route
               path="/notification"
               element={

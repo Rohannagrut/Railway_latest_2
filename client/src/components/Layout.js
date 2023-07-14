@@ -37,6 +37,13 @@ const Layout = ({ children }) => {
       path: `/users/profile/${user?._id}`,
       icon: "fa-solid fa-user",
     },
+    /***EXtra */
+
+    // {
+    //   name: "Profile",
+    //   path: `/doctor/profile/${user?._id}`,
+    //   icon: "fa-solid fa-user",
+    // },
   ];
 
   // =======Doctor menu====
