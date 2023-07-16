@@ -16,27 +16,22 @@ const Layout = ({ children }) => {
     navigate("/login");
   };
   // ==== Doctormenu =====
-  const userMenu = [
+  const doctorMenu = [
     {
       name: "Home",
       path: "/",
       icon: "fa-solid fa-house",
     },
-    // {
-    //   name: "Appointments",
-    //   path: "/appointments",
-    //   icon: "fa-solid fa-list",
-    // },
     {
       name: "Apply Form",
       path: "/apply-form",
       icon: "fa-solid fa-user-doctor",
     },
-    {
-      name: "Profile",
-      path: `/users/profile/${user?._id}`,
-      icon: "fa-solid fa-user",
-    },
+    // {
+    //   name: "Profile",
+    //   path: `/users/profile/${user?._id}`,
+    //   icon: "fa-solid fa-user",
+    // },
     /***EXtra */
 
     // {
@@ -48,7 +43,11 @@ const Layout = ({ children }) => {
 
   // =======Doctor menu====
   // redering menu list
-  const SidebarMenu = user?.isAdmin ? adminMenu : userMenu;
+  const SidebarMenu = user?.isAdmin
+    ? adminMenu
+    : user?.isDoctor
+    ? doctorMenu
+    : userMenu;
   return (
     <>
       <div className="main">
@@ -87,7 +86,7 @@ const Layout = ({ children }) => {
                 >
                   <i class="fa-solid fa-bell"></i>
                 </Badge>
-                <Link to="/profile">{user?.name}</Link>
+                <Link to="/">{user?.name}</Link>
               </div>
             </div>
             <div className="body">{children}</div>

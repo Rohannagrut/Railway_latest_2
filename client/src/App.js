@@ -10,7 +10,10 @@ import ApplyForm from "./pages/ApplyForm";
 import NotificationPage from "./pages/NotificationPage";
 import Users from "./pages/admin/Users";
 import Doctors from "./pages/admin/Doctors";
-import Profile from "./pages/Profile";
+import GeneratePdf from "./pages/GeneratePdf";
+import RailwayForm from "./pages/admin/RailwayForm";
+// import Profile from "./pages/doctor/Profile";
+// import Profile from "./pages/Profile";
 // import ApplyDoctor from "./pages/ApplyDoctor";
 
 function App() {
@@ -47,6 +50,23 @@ function App() {
               }
             />
             <Route
+              path="/generate-pdf"
+              element={
+                <ProtectedRoute>
+                  <GeneratePdf />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/Railway-form"
+              element={
+                <ProtectedRoute>
+                  <RailwayForm />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
               path="/admin/doctors"
               element={
                 <ProtectedRoute>
@@ -63,14 +83,14 @@ function App() {
                 </ProtectedRoute>
               }
             /> */}
-            <Route
+            {/* <Route
               path="/users/profile/:id"
               element={
                 <ProtectedRoute>
                   <Profile />
                 </ProtectedRoute>
               }
-            />
+            /> */}
             {/* extra */}
             {/* <Route
               path="/doctor/profile/:id"

@@ -1,5 +1,10 @@
 const railwayModel = require("../models/railwayModel");
 const userModel = require("../models/userModels");
+/** generate to pdf  */
+const ejs = require("ejs");
+const { response } = require("express");
+const pdf = require("html-pdf");
+const path = require("path");
 
 const getAllUsersController = async (req, res) => {
   try {
@@ -47,7 +52,7 @@ const changeAccountStatusController = async (req, res) => {
     const notifcation = user.notifcation;
     notifcation.push({
       type: "applicants-account-request-updated",
-      message: `Your Doctor Account Request has ${status}`,
+      message: `Your Application Account Request has been ${status}`,
       onClickPath: "/notification",
     });
     // extra thing h
@@ -68,8 +73,43 @@ const changeAccountStatusController = async (req, res) => {
   }
 };
 
+/** Generate pdf */
+const exportUserPdf = async (req, res) => {
+  try {
+    const users = await railwayModel.find({});
+    // res.status(200).send({
+    //   success: true,
+    //   message: "generate pdf list",
+    //   data: users,
+    // });
+    const data = {
+      users: users,
+    };
+    const filePathName = path.resolve(
+      __dirname,
+      "../client/src/pages/admin/Users.js"
+    );
+    const htmlString = fs.readFileSync(filePathName).toString();
+    let options = {
+      format: "Letter",
+    };
+    const ejsData = ejs.render(htmlString, data);
+    pdf.create(ejsData, options).toFile("users.pdf", (err, response) => {
+      if (err) console.log(err);
+      console.log("file generated");
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "error while pdf controller",
+      error,
+    });
+  }
+};
 module.exports = {
   getAllDoctorsController,
   getAllUsersController,
   changeAccountStatusController,
+  exportUserPdf,
 };

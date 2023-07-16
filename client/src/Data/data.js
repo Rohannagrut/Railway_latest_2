@@ -19,11 +19,6 @@ export const userMenu = [
     path: "/apply-form",
     icon: "fa-solid fa-user-doctor",
   },
-  {
-    name: "Profile",
-    path: "/profile",
-    icon: "fa-solid fa-user",
-  },
 ];
 
 // admin menu
@@ -40,13 +35,18 @@ export const adminMenu = [
     icon: "fa-solid fa-user-doctor",
   },
   {
-    name: "Users",
+    name: "Users Applied",
     path: "/admin/users",
     icon: "fa-solid fa-user",
   },
   {
-    name: "Profile",
-    path: "/profile",
+    name: "Generate Pdf ",
+    path: "/generate-pdf",
+    icon: "fa-solid fa-user",
+  },
+  {
+    name: "Railway form print ",
+    path: "/Railway-form",
     icon: "fa-solid fa-user",
   },
 ];
