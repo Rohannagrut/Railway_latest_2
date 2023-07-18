@@ -64,6 +64,10 @@ const railwaySchema = new mongoose.Schema(
       type: Object,
       required: [true, "work timing is required"],
     },
+    image: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );

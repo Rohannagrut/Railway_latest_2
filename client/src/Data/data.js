@@ -19,6 +19,7 @@ export const userMenu = [
     path: "/apply-form",
     icon: "fa-solid fa-user-doctor",
   },
+
 ];
 
 // admin menu

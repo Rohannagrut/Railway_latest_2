@@ -12,6 +12,8 @@ import Users from "./pages/admin/Users";
 import Doctors from "./pages/admin/Doctors";
 import GeneratePdf from "./pages/GeneratePdf";
 import RailwayForm from "./pages/admin/RailwayForm";
+import UploadImage from "./pages/UploadImage";
+import ImageUploader from "./pages/ImageUploader";
 // import Profile from "./pages/doctor/Profile";
 // import Profile from "./pages/Profile";
 // import ApplyDoctor from "./pages/ApplyDoctor";
@@ -71,6 +73,22 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Doctors />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/add-documents"
+              element={
+                <ProtectedRoute>
+                  <UploadImage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/upload-image"
+              element={
+                <ProtectedRoute>
+                  <ImageUploader />
                 </ProtectedRoute>
               }
             />

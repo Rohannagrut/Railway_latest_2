@@ -107,6 +107,8 @@ const exportUserPdf = async (req, res) => {
     });
   }
 };
+/** Uploading images */
+
 module.exports = {
   getAllDoctorsController,
   getAllUsersController,

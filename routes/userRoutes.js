@@ -9,6 +9,8 @@ const {
   // applyDoctorController,
 } = require("../controllers/userCtrl");
 const authMiddleware = require("../middlewares/authMiddleware");
+const { uploadImage } = require("../controllers/adminCtrl");
+const railwayModel = require("../models/railwayModel");
 
 //router onject
 const router = express.Router();
@@ -33,6 +35,25 @@ router.post("/apply-form", authMiddleware, authApplyController);
 router.post("/get-all-notification", authMiddleware, geAllController);
 
 // NOTIFICATION DELete || post
+// for uploading images
+router.post("/store-image", async (req, res) => {
+  try {
+    const { image } = req.body;
+    if (!image) {
+      return res.status(400).json({ msg: "Please enter an icon url" });
+    }
+    let newImage = new railwayModel({
+      image,
+    });
+    newImage = await newImage.save();
+    res.json(newImage);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// adding images
+
 router.post(
   "/delete-all-notification",
   authMiddleware,

@@ -27,6 +27,17 @@ const Layout = ({ children }) => {
       path: "/apply-form",
       icon: "fa-solid fa-user-doctor",
     },
+    {
+      name: "Add Documents",
+      path: "/upload-image",
+      icon: "fa-solid fa-user-doctor",
+    },
+    {
+      name: "Delete Documents",
+      path: "/add-documents",
+      icon: "fa-solid fa-user-doctor",
+    },
+
     // {
     //   name: "Profile",
     //   path: `/users/profile/${user?._id}`,
